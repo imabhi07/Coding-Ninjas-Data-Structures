@@ -1,0 +1,6 @@
+What will happen in this code?
+int a = 100, b = 200;
+int *p = &a, *q = &b;
+p = q;
+
+Answer: p now poisnts to b
