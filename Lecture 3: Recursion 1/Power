@@ -8,3 +8,11 @@ int power(int x, int n) {
   }
 	return x*power(x,n-1);
 }
+
+
+
+
+
+
+
+
