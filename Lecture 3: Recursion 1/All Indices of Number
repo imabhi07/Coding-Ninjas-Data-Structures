@@ -1,0 +1,21 @@
+Given an array of length N and an integer x, you need to find all the indexes where x is present in the input array. Save all the indexes in an array (in increasing order).
+
+int size=0;
+int loop=-1;
+int allIndexes(int a[], int n, int x, int output[]) {
+    loop++;
+  if(n==0){
+        return 0;
+    }
+    if(a[0]==x){
+            output[size++]=loop; 
+    }
+    allIndexes(a+1,n-1,x,output);
+        return size;      
+}
+
+
+
+
+
+
