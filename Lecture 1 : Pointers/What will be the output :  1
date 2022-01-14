@@ -1,0 +1,7 @@
+int a = 7;
+int b = 17;
+int *c = &b;
+*c = 7;
+cout  << a << "  “ << b << endl;
+
+Answer: 7 7
