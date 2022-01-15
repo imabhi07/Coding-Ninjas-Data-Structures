@@ -1,0 +1,45 @@
+
+#include"bits/stdc++.h"
+using namespace std;
+string ch(long int a){
+	 string b;
+	switch(a){
+    case 0:b="";break;
+	case 1:b="";break;
+	case 2:b="abc";break;
+	case 3:b="def";break;
+	case 4:b="ghi";break;
+	case 5:b="jkl";break;
+	case 6:b="mno";break;
+	case 7:b="pqrs";break;
+	case 8:b="tuv";break;
+	case 9:b="wxyz";break;
+	}
+	return b;
+}
+int keypad(int num,string output[]){
+	if(num==0){
+		output[0]=""; 
+		return 1;
+	}
+	int smallOutput=keypad(num/10,output);
+	int l=num%10;
+	string last=ch(l);
+	string temp[10000];
+	int k=0;
+	for(int i=0;i<smallOutput;i++){
+		for(int j=0;j<last.length();j++){
+			temp[k]=output[i]+last[j];
+			k++;
+		}
+	}
+	for(int i=0;i<k;i++){
+		output[i]=temp[i];
+	}
+	return (smallOutput*last.length());
+}
+
+
+
+
+
