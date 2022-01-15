@@ -1,0 +1,32 @@
+Given a string S, remove consecutive duplicates from it recursively.
+
+
+
+#include"bits/stdc++.h"
+char last='1';
+void removeConsecutiveDuplicates(char *a) {
+	if(a[0]=='\0'){
+        return;
+    }else if(last==a[0]){
+    	for(int i=0;i<strlen(a);i++){
+            a[i]=a[i+1];
+        }
+    	removeConsecutiveDuplicates(a);
+	}else if(a[0]==a[1]){
+        last=a[1];
+        for(int i=1;i<strlen(a);i++){
+            a[i]=a[i+1];
+        }
+        removeConsecutiveDuplicates(a+1);
+    }
+    else{
+        last='1';
+        removeConsecutiveDuplicates(a+1);
+    }
+}
+
+
+
+
+
+
