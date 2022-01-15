@@ -1,0 +1,30 @@
+Given a string, compute recursively a new string where all appearances of "pi" have been replaced by "3.14"
+
+
+
+
+#include"bits/stdc++.h"
+void replace(char a[],int s){
+    if(a[s]=='\0' || a[s+1]=='\0'){
+        return;
+    }
+    replace(a,s+1);
+    if(a[s]=='p' && a[s+1]=='i'){
+        for(int i=strlen(a);i>=s+2;i--){
+           a[i+2]=a[i];
+        } a[s]='3';
+            a[s+1]='.';
+            a[s+2]='1';
+            a[s+3]='4';
+    }
+}
+void replacePi(char a[]) {
+	replace(a,0);
+}
+
+
+
+
+
+
+
