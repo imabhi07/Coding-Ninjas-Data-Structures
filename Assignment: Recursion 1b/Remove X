@@ -1,0 +1,27 @@
+Given a string, compute recursively a new string where all 'x' chars have been removed.
+
+
+#include"bits/stdc++.h"
+
+void remove(char a[],int s){
+	if(a[s]=='\0'){
+        return;
+    }else if(a[s]=='x'){
+        int i;
+        for(i=s;i<strlen(a);i++){
+            a[i]=a[i+1];
+        }
+		remove(a,s);
+    }
+   else
+       remove(a,s+1);
+}
+void removeX(char a[]){
+    remove(a,0);
+}
+
+
+
+
+
+
