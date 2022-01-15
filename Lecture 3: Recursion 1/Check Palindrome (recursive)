@@ -1,0 +1,30 @@
+Check whether a given String S is a palindrome using recursion. Return true or false.
+
+
+int s=0;
+bool checkPalindrome(char a[]){
+    int e=0,loop=0;
+    int i=0;
+    while(a[i]!='\0'){
+    	loop++;
+    	i++;
+	}
+	e=loop-s;
+	if(s==e)
+		return true;
+	if(a[s]!=a[e-1])
+		return false;
+	if(s<e){
+		s++;
+		return checkPalindrome(a);
+	}
+	return true;	
+}
+
+
+
+
+
+
+
+
