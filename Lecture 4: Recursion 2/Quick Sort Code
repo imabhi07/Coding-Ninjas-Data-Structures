@@ -1,0 +1,34 @@
+
+
+void swap(int a[],int i,int j){
+    int temp=a[i];
+    a[i]=a[j];
+    a[j]=temp;
+}
+int partion(int a[],int s,int e){
+    int count=s-1;
+    int num=a[e];
+    for(int j=s;j<e;j++){
+        if(a[j]<num){
+            count++;
+            swap(a,count,j);
+        }
+    }
+    swap(a,count+1,e);
+    return count+1;
+}
+void quick(int a[],int s,int e){
+    if(s<e){
+        // int index=0;
+       int index=partion(a,s,e);
+        quick(a,s,index-1);
+        quick(a,index+1,e);
+    }
+}
+void quickSort(int input[], int size) {
+  quick(input,0,size-1);
+}
+
+
+
+
