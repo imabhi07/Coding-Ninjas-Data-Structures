@@ -1,0 +1,32 @@
+
+Write a recursive function to convert a given string into the number it represents. 
+That is input will be a numeric string that contains only numbers, you need to convert the string into corresponding 
+integer and return the answer
+
+
+
+
+
+#include"bits/stdc++.h"
+int ans=0;
+int digit=1;
+int stri(char a[],int s){
+    if(a[s]=='\0'){
+        return 0;
+    }else{
+    	int x=a[s]-'0';
+		ans=ans*10;
+        ans=ans+x;
+        stri(a,s+1);
+    }
+    return ans;
+}
+int stringToNumber(char a[]) {
+    return stri(a,0);
+}
+
+
+
+
+
+
