@@ -1,0 +1,25 @@
+Given an integer N, count and return the number of zeros that are present in the given integer using recursion.
+
+
+int ans=0;
+int countZeros(int n) {
+    if(n==0){
+        return 1;
+    }
+    if(n>0){
+    int a=n%10;
+        int b=n/10;
+    if(a==0){
+        ans++;
+    }
+        countZeros(b);
+    }
+	return ans;
+}
+
+
+
+
+
+
+
