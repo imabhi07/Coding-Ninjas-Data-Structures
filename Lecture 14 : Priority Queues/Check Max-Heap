@@ -1,0 +1,18 @@
+bool isMaxHeap(int arr[], int n) {
+    int index=0;
+    int lindex=2*index+1;
+    int rindex=2*index+2;
+    while(lindex<n){
+        if(arr[index]>arr[lindex] && arr[index]>arr[rindex]){
+            index++;
+            lindex=2*index+1;
+            rindex=2*index+1;
+        }else{
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
