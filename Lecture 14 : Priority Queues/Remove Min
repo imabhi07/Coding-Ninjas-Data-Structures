@@ -1,0 +1,85 @@
+#include"bits/stdc++.h"
+class PriorityQueue {
+    vector<int> pq;
+
+   public:
+    bool isEmpty() { 
+        return pq.size() == 0; 
+    }
+
+    int getSize() { 
+        return pq.size(); 
+    }
+
+    int getMin() {
+        if (isEmpty()) {
+            return 0;
+        }
+
+        return pq[0];
+    }
+
+    void insert(int element) {
+        pq.push_back(element);
+
+        int childIndex = pq.size() - 1;
+
+        while (childIndex > 0) {
+            int parentIndex = (childIndex - 1) / 2;
+
+            if (pq[childIndex] < pq[parentIndex]) {
+                int temp = pq[childIndex];
+                pq[childIndex] = pq[parentIndex];
+                pq[parentIndex] = temp;
+            } else {
+                break;
+            }
+
+            childIndex = parentIndex;
+        }
+    }
+
+    int removeMin(){
+        int ans=pq[0];
+    	int change=pq[pq.size()-1];
+        pq[0]=change;
+        pq.pop_back();
+        int index=0;
+        while(index<pq.size()-1){
+        bool l=false,r=false;    
+    	int lchild,rchild;
+        if(2*index+1<=pq.size()-1){
+        	lchild=2*index+1;
+            l=true;
+        }
+        if(2*index+2<=pq.size()-1){
+        	rchild=2*index+2;
+            r=true;
+        }            
+        int small;
+        if(l&&r){
+            if(pq[lchild]>pq[rchild]){
+                small=rchild;
+            }else{
+                small=lchild;
+            }
+        }else if(l){
+            small=lchild;
+        }else{
+            small=rchild;
+        }
+        if(pq[index]>pq[small]){
+            int temp=pq[index];
+            pq[index]=pq[small];
+            pq[small]=temp;
+        }else{
+            break;
+        } 
+            index=small;
+        }  
+    return ans;
+    }
+    
+    
+    
+};
