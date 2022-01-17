@@ -1,0 +1,46 @@
+
+void heapSort(int arr[], int n) {
+ for(int i=1;i<n;i++){
+     int cindex=i;
+     while(cindex>0){
+         int pindex=(cindex-1)/2;
+         if(arr[cindex]<arr[pindex]){
+             int temp=arr[cindex];
+             arr[cindex]=arr[pindex];
+             arr[pindex]=temp;
+         }else{
+             break;
+         }
+         cindex=pindex;
+     }
+ }   
+    int size=n;
+    while(size>1){
+	int temp=arr[0];
+	arr[0]=arr[size-1];
+    arr[size-1]=temp;
+    size--;
+    
+    int pindex=0;
+    int lindex=2*pindex+1;
+    int rindex=2*pindex+2;
+    while(lindex<size){
+        int min=pindex;
+        if(arr[min]>arr[lindex]){
+            min=lindex;
+        }
+        if(rindex<size && arr[rindex]<arr[min]){
+            min=rindex;
+        }
+        if(min==pindex){
+            break;
+        }
+        int temp=arr[min];
+        arr[min]=arr[pindex];
+        arr[pindex]=temp;
+        pindex=min;
+        lindex=2*pindex+1;
+        rindex=2*pindex+2;
+    }
+    }
+}
