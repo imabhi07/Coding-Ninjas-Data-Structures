@@ -1,0 +1,70 @@
+#include"bits/stdc++.h"
+class PriorityQueue {
+	vector<int> pq;
+   public:
+     void insert(int element) {
+        pq.push_back(element);
+         int index=pq.size()-1;
+         while(index>=0){   
+             int pindex=(index-1)/2;
+             if(pq[index]>pq[pindex]){    
+                 int temp=pq[index];
+                 pq[index]=pq[pindex];
+                 pq[pindex]=temp;
+             }else{
+                 break;
+             }
+             index=pindex;
+         }
+    }
+    int getMax() {
+        return pq[0];
+    }
+    int removeMax() {
+        int ans=pq[0];
+    	int change=pq[pq.size()-1];
+        pq[0]=change;
+        pq.pop_back();
+        int index=0;
+        while(index<pq.size()-1){
+        bool l=false,r=false;    
+    	int lchild,rchild;
+        if(2*index+1<=pq.size()-1){
+        	lchild=2*index+1;
+            l=true;
+        }
+        if(2*index+2<=pq.size()-1){
+        	rchild=2*index+2;
+            r=true;
+        }            
+        int large;
+        if(l&&r){
+            if(pq[lchild]>pq[rchild]){
+                large=lchild;
+            }else{
+                large=rchild;
+            }
+        }else if(l){
+            large=lchild;
+        }else{
+            large=rchild;
+        }
+        if(pq[index]<pq[large]){
+            int temp=pq[index];
+            pq[index]=pq[large];
+            pq[large]=temp;
+        }else{
+            break;
+        } 
+            index=large;
+        }  
+    return ans;
+    }
+    int getSize() { 
+        return pq.size();
+    }
+    bool isEmpty() {
+        return pq.size()==0;
+    }
+};
+
