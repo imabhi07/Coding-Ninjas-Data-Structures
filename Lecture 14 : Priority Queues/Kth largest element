@@ -1,0 +1,27 @@
+#include"bits/stdc++.h"
+int kthLargest(int* input, int n, int k) {
+    priority_queue<int> p;
+    
+    for(int i=0;i<n;i++){
+        p.push(input[i]);
+    }
+	for(int i=k;i<n;i++){
+		if(p.top()<input[i]){
+			p.pop();
+			p.push(input[i]);
+		}
+	}
+	int j=0;
+	for(int i=0;i<k;i++){
+		input[j++]=p.top();
+		p.pop();
+	}
+	return input[k-1];
+}
+
+
+
+
+
+
+
